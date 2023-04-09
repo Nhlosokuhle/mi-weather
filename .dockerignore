@@ -1,0 +1,19 @@
+# Ignore files and directories commonly excluded in Django projects
+.git
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+*.egg-info
+*.egg
+*.log
+*.cfg
+*.md
+*.txt
+
+# Ignore development files and directories
+*.DS_Store
+.idea/
+.vscode/
+node_modules/
