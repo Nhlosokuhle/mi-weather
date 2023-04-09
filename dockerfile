@@ -1,26 +1,22 @@
 # Use an official Python runtime as a parent image
-FROM python:3.9-slim-buster
+FROM python:3.8-slim-buster
 
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-# Set working directory
+# Set the working directory to /app
 WORKDIR /app
 
-# Copy the requirements file
-COPY requirements.txt .
+# Copy the requirements file into the container at /app
+COPY requirements.txt /app/
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the current directory contents into the container at /app
+# Copy the rest of the application code into the container at /app
 COPY . /app/
 
-# Run Django's collectstatic command to collect static files
-RUN python manage.py collectstatic --noinput
+# Set the environment variable for Django settings module
+ENV DJANGO_SETTINGS_MODULE=mySite.settings
 
-# Expose the port that the Django development server will use
+# Expose the port that the Django app will run on
 EXPOSE 8000
 
 # Start the Django development server
