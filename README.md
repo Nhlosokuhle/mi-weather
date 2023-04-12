@@ -1,7 +1,7 @@
 # mi-weather
 
 ## Description of the application
-MI-Weather is a web application that provides the user with current weather information and forecasts for different locations around the world.
+MI-Weather is a web application that provides the user with current weather information for different locations around the world.
 
 ## How the application works
 ### Using docker:
