@@ -37,15 +37,28 @@ def get_weather(city):
     }
     response = requests.get(url, params=params)
     data = response.json()
+    data = response.json()
+    city = data["name"]
+    temperature = round(data['main']['temp'])
+    description = data['weather'][0]['description'].title()
+    icon_code = data['weather'][0]['icon']
+    icon_url = f'http://openweathermap.org/img/w/{icon_code}.png'
+    min_temperature = data["main"]["temp_min"]
+    max_temperature = data["main"]["temp_max"]
+    real_feel = data["main"]["feels_like"]
+    humidity = data["main"]["humidity"]
+    wind_speed = data["wind"]["speed"]
+    pressure = data["main"]["pressure"]
     weather = {
-        "city": data["name"],
-        "temperature": data["main"]["temp"],
-        "min_temperature": data["main"]["temp_min"],
-        "max_temperature": data["main"]["temp_max"],
-        "real_feel": data["main"]["feels_like"],
-        "icon": data["weather"][0]["icon"],
-        "humidity": data["main"]["humidity"],
-        "wind_speed": data["wind"]["speed"],
-        "pressure": data["main"]["pressure"]
+        "city": city,
+        "temperature": temperature,
+        'description': description,
+        'icon': icon_url,
+        "min_temperature": min_temperature,
+        "max_temperature": max_temperature,
+        "real_feel": real_feel,
+        "humidity": humidity,
+        "wind_speed": wind_speed,
+        "pressure": pressure
     }
     return weather

@@ -30,7 +30,7 @@
                         <p>{{ now|date:"DATETIME_FORMAT" }}</p>
                     </div>
                     <div class="weather__icon">
-                        <img src="http://openweathermap.org/img/wn/{{ weather.icon }}@4x.png" alt="{{ weather.description }}">
+                        <img src="{{ weather.icon }}" alt="{{ weather.description }}">
                         <!-- <img src="http://openweathermap.org/img/wn/10d@4x.png" alt=""> -->
                         <p class="weather__temperature">
                             {{ weather.temperature }}&#176
